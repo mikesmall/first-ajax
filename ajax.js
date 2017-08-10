@@ -4,6 +4,7 @@ document.addEventListener("DOMContentLoaded", function() {
   var secondButton = document.getElementById('step3456button');
   var thirdButton  = document.getElementById('step7button');
   var fourthButton = document.getElementById('step8button');
+  var fifthButton  = document.getElementById('step9button');
 
   firstButton.addEventListener('click', function() {
     console.log('The Step 1+2 button was clicked!');
@@ -59,6 +60,16 @@ document.addEventListener("DOMContentLoaded", function() {
     }).done(function(responseData) {
       console.log('The time in Moncton is: ' + responseData);
       $('#step8').append("<br> Right now in Moncton, it's " + responseData);
+    })
+  });
+
+  fifthButton.addEventListener('click', function() {
+    console.log('The fifth and final button knows who clicked it: You.');
+    $.ajax({
+      url: 'http://first-ajax-api.herokuapp.com/a_car/',
+      method: 'GET',
+      data: '',
+      dataType: 'html',
     })
   });
 
