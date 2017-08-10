@@ -40,6 +40,11 @@ document.addEventListener("DOMContentLoaded", function() {
       method: 'GET',
       data: '',
       dataType: 'text',
+    }).done(function(responseData) {
+      console.log('How many Bitmakers have been here? ' + responseData);
+      $('#step7').append(responseData + ' Bitmakers have been here. This includes you, friend.');
+    }).always(function() {
+      console.log('Request received and response sent.');
     })
   });
 
