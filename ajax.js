@@ -2,9 +2,10 @@ document.addEventListener("DOMContentLoaded", function() {
 
   var firstButton  = document.getElementById('step12button');
   var secondButton = document.getElementById('step3456button');
+  var thirdButton  = document.getElementById('step7button');
 
   firstButton.addEventListener('click', function() {
-    console.log('The step 1/2 button was clicked!');
+    console.log('The Step 1+2 button was clicked!');
     $.ajax({
       url: 'http://first-ajax-api.herokuapp.com/',
       method: 'GET',
@@ -14,22 +15,32 @@ document.addEventListener("DOMContentLoaded", function() {
   });
 
   secondButton.addEventListener('click', function() {
-    console.log('The step 3/4/5/6 button got clicked!');
+    console.log('The Step 3-4-5-6 button got clicked!');
     $.ajax({
       url: 'http://first-ajax-api.herokuapp.com/ping/',
       method: 'GET',
       data: '',
       dataType: 'text',
-    }).done(function (responseData) {
+    }).done(function(responseData) {
       console.log('Response data: ' + responseData);
       $('#step3456').append('The server says: ' + responseData);
-    }).fail(function () {
+    }).fail(function() {
       console.log('Fail, fail, fail!');
       $('#step3456').append('The request failed! Sorry!');
-    }).always(function () {
+    }).always(function() {
       console.log('Request and response complete.');
       // $('#step3456').append('Win or lose, my work is done here.');
     });
+  });
+
+  thirdButton.addEventListener('click', function() {
+    console.log('The Step 7 button is hereby clicked.');
+    $.ajax({
+      url: 'http://first-ajax-api.herokuapp.com/count/',
+      method: 'GET',
+      data: '',
+      dataType: 'text',
+    })
   });
 
 }); //DOMContentLoaded
