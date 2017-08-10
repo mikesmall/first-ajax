@@ -16,7 +16,7 @@ document.addEventListener("DOMContentLoaded", function() {
   secondButton.addEventListener('click', function() {
     console.log('The step 3/4/5/6 button got clicked!');
     $.ajax({
-      url: 'http://first-ajax-api.herokuapp.com/pong/',
+      url: 'http://first-ajax-api.herokuapp.com/ping/',
       method: 'GET',
       data: '',
       dataType: 'text',
@@ -26,7 +26,10 @@ document.addEventListener("DOMContentLoaded", function() {
     }).fail(function () {
       console.log('Fail, fail, fail!');
       $('#step3456').append('The request failed! Sorry!');
-    }); //done+fail
-  }); //click handler
+    }).always(function () {
+      console.log('Request and response complete.');
+      // $('#step3456').append('Win or lose, my work is done here.');
+    });
+  });
 
 }); //DOMContentLoaded
