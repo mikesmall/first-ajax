@@ -16,14 +16,17 @@ document.addEventListener("DOMContentLoaded", function() {
   secondButton.addEventListener('click', function() {
     console.log('The step 3/4/5/6 button got clicked!');
     $.ajax({
-      url: 'http://first-ajax-api.herokuapp.com/ping/',
+      url: 'http://first-ajax-api.herokuapp.com/pong/',
       method: 'GET',
       data: '',
       dataType: 'text',
     }).done(function (responseData) {
       console.log('Response data: ' + responseData);
       $('#step3456').append('The server says: ' + responseData);
-    }); //'done' function
+    }).fail(function () {
+      console.log('Fail, fail, fail!');
+      $('#step3456').append('The request failed! Sorry!');
+    }); //done+fail
   }); //click handler
 
 }); //DOMContentLoaded
