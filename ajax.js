@@ -54,11 +54,11 @@ document.addEventListener("DOMContentLoaded", function() {
     $.ajax({
       url: 'http://first-ajax-api.herokuapp.com/time/',
       method: 'GET',
-      data: '',
+      data: {timezone: 'America/Moncton'},
       dataType: 'text',
     }).done(function(responseData) {
-      console.log('Step 8 response data: ' + responseData);
-      $('#step8').append('<br> Response data: ' + responseData);
+      console.log('The time in Moncton is: ' + responseData);
+      $('#step8').append("<br> Right now in Moncton, it's " + responseData);
     })
   });
 
