@@ -70,6 +70,10 @@ document.addEventListener("DOMContentLoaded", function() {
       method: 'GET',
       data: '',
       dataType: 'html',
+    }).done(function(responseData) {
+      console.log('Response data, HTML format: ');
+      console.log(responseData);
+      $('#car_list').append(responseData);
     })
   });
 
