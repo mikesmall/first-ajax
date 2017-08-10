@@ -3,6 +3,7 @@ document.addEventListener("DOMContentLoaded", function() {
   var firstButton  = document.getElementById('step12button');
   var secondButton = document.getElementById('step3456button');
   var thirdButton  = document.getElementById('step7button');
+  var fourthButton = document.getElementById('step8button');
 
   firstButton.addEventListener('click', function() {
     console.log('The Step 1+2 button was clicked!');
@@ -23,10 +24,10 @@ document.addEventListener("DOMContentLoaded", function() {
       dataType: 'text',
     }).done(function(responseData) {
       console.log('Response data: ' + responseData);
-      $('#step3456').append('The server says: ' + responseData);
+      $('#step3456').append('<br>The server says: ' + responseData);
     }).fail(function() {
       console.log('Fail, fail, fail!');
-      $('#step3456').append('The request failed! Sorry!');
+      $('#step3456').append('<br>The request failed! Sorry!');
     }).always(function() {
       console.log('Request and response complete.');
       // $('#step3456').append('Win or lose, my work is done here.');
@@ -42,9 +43,22 @@ document.addEventListener("DOMContentLoaded", function() {
       dataType: 'text',
     }).done(function(responseData) {
       console.log('How many Bitmakers have been here? ' + responseData);
-      $('#step7').append(responseData + ' Bitmakers have been here. This includes you, friend.');
+      $('#step7').append('<br>' + responseData + ' Bitmakers have been here. This includes you, friend.');
     }).always(function() {
       console.log('Request received and response sent.');
+    })
+  });
+
+  fourthButton.addEventListener('click', function() {
+    console.log('The Step 8 button felt a click!');
+    $.ajax({
+      url: 'http://first-ajax-api.herokuapp.com/time/',
+      method: 'GET',
+      data: '',
+      dataType: 'text',
+    }).done(function(responseData) {
+      console.log('Step 8 response data: ' + responseData);
+      $('#step8').append('<br> Response data: ' + responseData);
     })
   });
 
